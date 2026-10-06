@@ -19,8 +19,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: 检查库存
         env:
-          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+          BARK_KEY: ${{ secrets.BARK_KEY }}
         run: python3 -m tasks.id10_stock
       - name: 保存状态
         run: |

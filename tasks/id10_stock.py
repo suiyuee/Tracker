@@ -27,7 +27,7 @@ def main() -> None:
 
     if prev is None or prev["in_stock"] != in_stock:
         status = f"有货（库存 {stock}）" if in_stock else "没货了"
-        notify.send(f"[{status}] {product}", f"{product}\n状态：{status}\n时间：{now}\n{URL}")
+        notify.send(f"[{status}] {product}", f"时间：{now}", url=URL)
     if prev is None or prev["in_stock"] != in_stock or prev["stock"] != stock:
         state.save(NAME, {"in_stock": in_stock, "stock": stock, "updated_at": now})
 

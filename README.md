@@ -1,20 +1,17 @@
 # Tracker
 
-基于 GitHub Actions 的定时任务集合，结果通过微信推送。
+基于 GitHub Actions 的定时任务集合，结果通过 Bark 推送。
 
 ## 结构
 
 - `tasks/`：每个任务一个模块，用 `python3 -m tasks.<name>` 运行
-- `tracker/`：公共能力（HTTP、微信推送、状态存储）
+- `tracker/`：公共能力（HTTP、Bark 推送、状态存储）
 - `state/`：各任务上次的结果，工作流在变化时自动提交
 - `.github/workflows/`：每个任务一个工作流，各自设定频率
 
 ## 推送配置
 
-在仓库 Secrets 里设置任意一个或多个：
-
-- `PUSHPLUS_TOKEN`：PushPlus token
-- `SERVERCHAN_SENDKEY`：Server酱 SendKey
+在仓库 Secrets 里设置 `BARK_KEY`。
 
 ## 任务
 
