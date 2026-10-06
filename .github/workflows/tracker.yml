@@ -1,0 +1,31 @@
+name: Tracker
+
+# 只允许定时和手动触发；不要加 pull_request / pull_request_target，避免外部代码拿到 Secrets
+on:
+  schedule:
+    - cron: "3-59/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tracker
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: 运行任务
+        env:
+          BARK_KEY: ${{ secrets.BARK_KEY }}
+        run: python3 -m tracker.run
+      - name: 保存状态
+        if: always()
+        run: |
+          git add state/
+          git diff --cached --quiet && exit 0
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "chore(state): update"
+          git pull --rebase && git push

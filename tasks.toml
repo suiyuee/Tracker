@@ -1,0 +1,2 @@
+# 任务开关：true 启用，false 停用；键名对应 tasks/ 下的模块名
+id10_stock = true
