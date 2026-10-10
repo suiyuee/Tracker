@@ -9,7 +9,7 @@
 - `tracker/`：公共能力（HTTP、Bark 推送、状态存储、任务调度）
 - `state/`：各任务上次的结果，工作流在变化时自动提交
 
-工作流 `Tracker` 每 5 分钟运行一次所有启用的任务（GitHub 定时任务可能延迟）；本地运行：`python3 -m tracker.run`。
+GitHub 上的定时运行已停用（定时任务延迟太大），工作流 `Tracker` 只保留手动触发。本地运行：`BARK_KEY=<你的 key> python3 -m tracker.run`。
 
 ## 配置
 
