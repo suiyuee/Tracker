@@ -1,4 +1,4 @@
-"""每个任务的上次结果存在 state/<name>.json，由工作流在变化时提交回仓库。"""
+"""每个任务的上次结果存在 state/<name>.json，只保存在本地，不提交。"""
 import json
 from pathlib import Path
 

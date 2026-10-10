@@ -1,4 +1,5 @@
 __pycache__/
+state/
 .DS_Store
 
 # 本地凭据与私有数据，任何时候都不提交
